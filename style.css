@@ -2,15 +2,16 @@
     -----------------------------------------------------
     The Grid Digest - Swiss Style Black & White Magazine
     Author: Your Name/Organization
-    Version: 1.0.0
+    Version: 1.0.1
     -----------------------------------------------------
     Design Philosophy:
     - Minimalism: Stripping away clutter to focus on content.
     - Grid System: Precise alignment and structure for readability.
     - Typography: Strong sans-serif fonts (Inter, Source Code Pro) for hierarchy and clarity.
-    - Color Palette: Pure black (#000) and pure white (#FFF) for stark contrast.
+    - Color Palette: Pure black (#000) and pure white (#FFF) with a deliberate, sharp red accent.
     - Negative Space: Crucial for breathing room and visual impact.
     - Responsiveness: Mobile-first approach ensuring legibility on all devices.
+    - Red Accent: Used sparingly and purposefully for emphasis and interactivity.
 */
 
 /* --- 0. Global Variables & Base Styles --- */
@@ -19,6 +20,7 @@
     --color-white: #FFFFFF;
     --color-light-grey: #F0F0F0; /* For subtle backgrounds or borders */
     --color-dark-grey: #333333; /* For subtle text variations, but mostly black */
+    --color-accent-red: #E4002B; /* Vibrant, distinct red */
 
     --font-primary: 'Inter', sans-serif;
     --font-mono: 'Source Code Pro', monospace;
@@ -31,7 +33,7 @@
     --spacing-unit: 1.5rem; /* ~24px */
 }
 
-/* Base Reset & Box Sizing */
+/* Base Reset & Box Sizing (No change) */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -55,18 +57,19 @@ body {
     flex-direction: column;
 }
 
-/* General Link & Button Styling */
+/* General Link & Button Styling - UPDATED FOR RED */
 a {
-    color: inherit; /* Inherit color from parent */
+    color: inherit;
     text-decoration: none;
-    transition: color 0.2s ease, background-color 0.2s ease;
-    padding-bottom: 2px; /* For subtle underline effect */
-    border-bottom: 1px solid transparent; /* To prevent jump on hover */
+    transition: color 0.2s ease, border-color 0.2s ease;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
 }
 
+/* Links turn red on hover */
 a:hover, a:focus {
-    color: var(--color-dark-grey); /* Slight softening on hover */
-    border-bottom-color: var(--color-black);
+    color: var(--color-accent-red); /* Red on hover */
+    border-bottom-color: var(--color-accent-red); /* Red border for accent */
 }
 
 .btn {
@@ -83,13 +86,19 @@ a:hover, a:focus {
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
+/* Buttons get red border/text on hover */
 .btn:hover, .btn:focus {
     background-color: var(--bg-color);
-    color: var(--text-color);
-    border-color: var(--text-color);
+    color: var(--color-accent-red);
+    border-color: var(--color-accent-red);
 }
 
-/* Utility Classes */
+/* New accent-red class for specific text elements */
+.accent-red {
+    color: var(--color-accent-red);
+}
+
+/* Utility Classes (No change) */
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -112,7 +121,7 @@ a:hover, a:focus {
     border-width: 0;
 }
 
-/* Headings */
+/* Headings (No change) */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
     font-weight: 700;
@@ -120,13 +129,13 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: calc(var(--spacing-unit) / 2);
 }
 
-h1 { font-size: clamp(2.5rem, 6vw, 4rem); } /* Responsive sizing for logo/hero */
+h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
 h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
 h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
 h4 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 500; }
 p { margin-bottom: var(--spacing-unit); }
 
-/* Section Heading Style */
+/* Section Heading Style - UPDATED FOR RED ACCENT */
 .section-heading {
     text-align: center;
     margin-bottom: calc(var(--spacing-unit) * 2);
@@ -140,7 +149,7 @@ p { margin-bottom: var(--spacing-unit); }
     display: block;
     width: 50px;
     height: 2px;
-    background-color: var(--text-color);
+    background-color: var(--color-accent-red); /* Red underline */
     margin: 0.5rem auto 0;
 }
 
@@ -161,7 +170,7 @@ p { margin-bottom: var(--spacing-unit); }
 }
 
 .logo {
-    font-family: var(--font-mono); /* Monospace for logo for a distinct feel */
+    font-family: var(--font-mono);
     font-weight: 700;
     font-size: 1.5rem;
     line-height: 1;
@@ -176,7 +185,7 @@ p { margin-bottom: var(--spacing-unit); }
 }
 
 .nav-toggle {
-    display: flex; /* Always display for mobile-first */
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 30px;
@@ -185,7 +194,7 @@ p { margin-bottom: var(--spacing-unit); }
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1100; /* Above nav */
+    z-index: 1100;
 }
 
 .nav-toggle .bar {
@@ -196,7 +205,7 @@ p { margin-bottom: var(--spacing-unit); }
 }
 
 .main-nav {
-    display: none; /* Hidden by default, shown by JS for mobile overlay */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -207,14 +216,14 @@ p { margin-bottom: var(--spacing-unit); }
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Hide scrollbar for smooth transition */
-    transform: translateX(100%); /* Start off-screen */
+    overflow: hidden;
+    transform: translateX(100%);
     transition: transform 0.4s ease-in-out;
 }
 
 .main-nav.active {
-    transform: translateX(0); /* Slide in */
-    display: flex; /* Show flex container */
+    transform: translateX(0);
+    display: flex;
 }
 
 .main-nav ul {
@@ -224,7 +233,7 @@ p { margin-bottom: var(--spacing-unit); }
 
 .main-nav ul li {
     margin: var(--spacing-unit) 0;
-    opacity: 0; /* For staggered animation */
+    opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
@@ -234,7 +243,7 @@ p { margin-bottom: var(--spacing-unit); }
     transform: translateY(0);
 }
 
-/* Staggered animation delay */
+/* Staggered animation delay (no change) */
 .main-nav.active ul li:nth-child(1) { transition-delay: 0.1s; }
 .main-nav.active ul li:nth-child(2) { transition-delay: 0.15s; }
 .main-nav.active ul li:nth-child(3) { transition-delay: 0.2s; }
@@ -251,11 +260,12 @@ p { margin-bottom: var(--spacing-unit); }
     border-bottom: 2px solid transparent;
 }
 
+/* Main nav links use red on hover */
 .main-nav a:hover, .main-nav a:focus {
-    border-bottom-color: var(--color-black);
+    border-bottom-color: var(--color-accent-red);
 }
 
-/* Nav toggle animation (X icon) */
+/* Nav toggle animation (X icon) (no change) */
 .nav-toggle.active .bar:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -275,16 +285,18 @@ p { margin-bottom: var(--spacing-unit); }
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 60vh; /* Ensure some height for visual impact */
+    min-height: 60vh;
 }
 
+/* Hero kicker now uses the accent-red class for visual impact */
 .hero-kicker {
     font-family: var(--font-mono);
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: calc(var(--spacing-unit) / 2);
-    opacity: 0.7;
+    /* Remove original opacity as accent-red provides enough distinction */
+    /* opacity: 0.7; */
 }
 
 .hero-title {
@@ -307,10 +319,10 @@ p { margin-bottom: var(--spacing-unit); }
     margin-top: var(--spacing-unit);
 }
 
-/* --- 3. Featured Articles --- */
+/* --- 3. Featured Articles (No change) --- */
 .article-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Single column on mobile */
+    grid-template-columns: 1fr;
     gap: calc(var(--spacing-unit) * 2);
 }
 
@@ -324,14 +336,14 @@ p { margin-bottom: var(--spacing-unit); }
 
 .article-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .article-image {
     width: 100%;
-    height: 250px; /* Fixed height for image consistency */
+    height: 250px;
     overflow: hidden;
-    background-color: var(--color-light-grey); /* Placeholder background */
+    background-color: var(--color-light-grey);
 }
 
 .article-image img {
@@ -339,7 +351,7 @@ p { margin-bottom: var(--spacing-unit); }
     height: 100%;
     object-fit: cover;
     display: block;
-    filter: grayscale(100%); /* Ensure images are B&W */
+    filter: grayscale(100%);
     transition: transform 0.3s ease;
 }
 
@@ -349,7 +361,7 @@ p { margin-bottom: var(--spacing-unit); }
 
 .article-content {
     padding: var(--spacing-unit);
-    flex-grow: 1; /* Allow content to fill space */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
@@ -359,18 +371,19 @@ p { margin-bottom: var(--spacing-unit); }
     margin-bottom: calc(var(--spacing-unit) / 2);
 }
 
+/* Article title links get red on hover */
 .article-title a {
     border-bottom: 1px solid transparent;
 }
 
 .article-title a:hover {
-    border-bottom-color: var(--color-black);
+    border-bottom-color: var(--color-accent-red);
 }
 
 .article-excerpt {
     font-size: 0.95rem;
     line-height: 1.5;
-    flex-grow: 1; /* Pushes meta to bottom */
+    flex-grow: 1;
 }
 
 .article-meta {
@@ -399,12 +412,14 @@ p { margin-bottom: var(--spacing-unit); }
     border: 1px solid var(--border-color);
     padding: var(--spacing-unit);
     text-align: center;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
+/* Section cards show red on hover, reversing colors */
 .section-card:hover {
-    background-color: var(--color-black);
+    background-color: var(--color-accent-red);
     color: var(--color-white);
+    border-color: var(--color-accent-red); /* Keep border same as bg for a solid block */
 }
 
 .section-card h4 {
@@ -418,8 +433,9 @@ p { margin-bottom: var(--spacing-unit); }
     border-bottom: 1px solid transparent;
 }
 
+/* Internal links in section card inherit color (white on hover) */
 .section-card h4 a:hover {
-    border-bottom-color: currentColor; /* Inherit color, then show border */
+    border-bottom-color: currentColor;
 }
 
 .section-card p {
@@ -427,7 +443,7 @@ p { margin-bottom: var(--spacing-unit); }
     margin-bottom: 0;
 }
 
-/* --- 5. Manifesto Section --- */
+/* --- 5. Manifesto Section (No change to specific styling of text/btn) --- */
 .manifesto-section {
     background-color: var(--color-light-grey);
     padding: calc(var(--spacing-unit) * 4) 0;
@@ -458,7 +474,7 @@ p { margin-bottom: var(--spacing-unit); }
     margin-top: calc(var(--spacing-unit) * 1.5);
 }
 
-/* --- 6. Subscribe Section --- */
+/* --- 6. Subscribe Section - UPDATED FOR RED ERROR MESSAGE --- */
 .subscribe-section {
     text-align: center;
 }
@@ -480,7 +496,7 @@ p { margin-bottom: var(--spacing-unit); }
 .subscribe-form .form-group {
     width: 100%;
     margin-bottom: var(--spacing-unit);
-    position: relative; /* For error message positioning */
+    position: relative;
 }
 
 .subscribe-form input[type="email"] {
@@ -496,15 +512,15 @@ p { margin-bottom: var(--spacing-unit); }
 }
 
 .subscribe-form input[type="email"]:focus {
-    border-color: var(--color-dark-grey);
+    border-color: var(--color-dark-grey); /* Keep dark grey on focus, not red */
 }
 
 .subscribe-form input[type="email"].invalid {
-    border-color: #ff0000; /* Red for invalid */
+    border-color: var(--color-accent-red); /* Red for invalid */
 }
 
 .subscribe-form .error-message {
-    color: #ff0000;
+    color: var(--color-accent-red); /* Error message in red */
     font-size: 0.85rem;
     margin-top: 5px;
     display: block;
@@ -517,13 +533,13 @@ p { margin-bottom: var(--spacing-unit); }
 }
 
 .form-success-message {
-    color: green;
+    color: green; /* Success message can remain green for conventional UX */
     font-size: 1.1rem;
     margin-top: var(--spacing-unit);
-    display: none; /* Hidden by default, shown by JS */
+    display: none;
 }
 
-/* --- 7. Contact Section --- */
+/* --- 7. Contact Section (No change to general text styling, only link hovers) --- */
 .contact-section {
     background-color: var(--color-light-grey);
     border-top: 1px solid var(--border-color);
@@ -541,6 +557,7 @@ address {
     margin-bottom: var(--spacing-unit);
 }
 
+/* Contact links get red on hover */
 address a {
     display: block;
     margin-bottom: 0.5rem;
@@ -549,7 +566,7 @@ address a {
 }
 
 address a:hover {
-    border-bottom-color: var(--color-black);
+    border-bottom-color: var(--color-accent-red);
 }
 
 .social-links {
@@ -557,6 +574,7 @@ address a:hover {
     margin-top: var(--spacing-unit);
 }
 
+/* Social links get red on hover */
 .social-links a {
     display: inline-block;
     margin: 0 0.75rem;
@@ -568,16 +586,16 @@ address a:hover {
 }
 
 .social-links a:hover {
-    border-bottom-color: var(--color-black);
+    border-bottom-color: var(--color-accent-red);
 }
 
-/* --- 8. Footer --- */
+/* --- 8. Footer (No change) --- */
 .main-footer {
     background-color: var(--color-black);
     color: var(--color-white);
     padding: var(--spacing-unit) 0;
     text-align: center;
-    margin-top: auto; /* Pushes footer to the bottom */
+    margin-top: auto;
 }
 
 .main-footer .container {
@@ -594,11 +612,12 @@ address a:hover {
 .footer-nav ul {
     list-style: none;
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
+    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
 }
 
+/* Footer nav links get red on hover */
 .footer-nav a {
     color: var(--color-white);
     font-size: 0.85rem;
@@ -608,14 +627,14 @@ address a:hover {
 }
 
 .footer-nav a:hover {
-    color: var(--color-light-grey);
-    border-bottom-color: var(--color-white);
+    color: var(--color-accent-red);
+    border-bottom-color: var(--color-accent-red);
 }
 
 
 /* --- Media Queries for Responsiveness (Desktop Last) --- */
 
-/* Tablet and larger */
+/* Tablet and larger (No change to responsiveness, only color from base rules) */
 @media (min-width: 768px) {
     .main-header .container {
         display: grid;
@@ -624,7 +643,7 @@ address a:hover {
     }
 
     .nav-toggle {
-        display: none; /* Hide hamburger on larger screens */
+        display: none;
     }
 
     .main-nav {
@@ -632,9 +651,9 @@ address a:hover {
         width: auto;
         height: auto;
         background: transparent;
-        transform: translateX(0); /* Ensure visible */
-        display: flex; /* Always show nav items */
-        justify-content: flex-end; /* Align right */
+        transform: translateX(0);
+        display: flex;
+        justify-content: flex-end;
     }
 
     .main-nav ul {
@@ -648,9 +667,9 @@ address a:hover {
 
     .main-nav ul li {
         margin: 0;
-        opacity: 1; /* No opacity transition needed */
+        opacity: 1;
         transform: translateY(0);
-        transition-delay: 0s !important; /* Override staggered delay */
+        transition-delay: 0s !important;
     }
 
     .main-nav a {
@@ -660,7 +679,7 @@ address a:hover {
     }
 
     .article-grid {
-        grid-template-columns: repeat(2, 1fr); /* Two columns on tablet */
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .section-grid {
@@ -684,10 +703,10 @@ address a:hover {
     }
 }
 
-/* Desktop and larger */
+/* Desktop and larger (No change to responsiveness, only color from base rules) */
 @media (min-width: 1024px) {
     .article-grid {
-        grid-template-columns: repeat(4, 1fr); /* Four columns on desktop */
+        grid-template-columns: repeat(4, 1fr);
     }
 
     .section-grid {
@@ -703,13 +722,3 @@ address a:hover {
         margin-bottom: 0;
     }
 }
-
-/* Optional: Dark Mode Toggle (if desired, uncomment & uncomment JS) */
-/*
-body.dark-mode {
-    --text-color: var(--color-white);
-    --bg-color: var(--color-black);
-    --border-color: var(--color-white);
-    --color-light-grey: #222222;
-}
-*/

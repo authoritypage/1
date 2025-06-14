@@ -1,1 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <title>The Grid Digest | Swiss Style Black & White Magazine</title>
+    <meta name="description" content="The Grid Digest: A minimalist Swiss-style black & white online magazine exploring design, architecture, tech, and philosophy. Clean, precise, timeless.">
+    <meta name="keywords" content="magazine, Swiss style, black and white, minimalist, design, architecture, technology, philosophy, grid, typography">
+    <meta name="author" content="Your Name/Organization">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/the-grid-digest/">
+    <meta property="og:title" content="The Grid Digest | Swiss Style Black & White Magazine">
+    <meta property="og:description" content="The Grid Digest: A minimalist Swiss-style black & white online magazine exploring design, architecture, tech, and philosophy. Clean, precise, timeless.">
+    <meta property="og:image" content="https://yourusername.github.io/the-grid-digest/assets/images/og-image.jpg"> <!-- Replace with a relevant image -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourusername.github.io/the-grid-digest/">
+    <meta property="twitter:title" content="The Grid Digest | Swiss Style Black & White Magazine">
+    <meta property="twitter:description" content="The Grid Digest: A minimalist Swiss-style black & white online magazine exploring design, architecture, tech, and philosophy. Clean, precise, timeless.">
+    <meta property="twitter:image" content="https://yourusername.github.io/the-grid-digest/assets/images/twitter-image.jpg"> <!-- Replace with a relevant image -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+    <!-- Google Fonts: Inter for headings and body, Source Code Pro for accents/code snippets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section: Masthead and Navigation -->
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo"><a href="#hero">The Grid Digest</a></h1>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#featured">Featured</a></li>
+                    <li><a href="#sections">Sections</a></li>
+                    <li><a href="#manifesto">Manifesto</a></li>
+                    <li><a href="#subscribe">Subscribe</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section: Latest Issue/Featured Article -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <p class="hero-kicker">Latest Issue: Vol. 003 — Precision in Chaos</p>
+            <h2 class="hero-title">The Unseen Grids: Deconstructing Modern Aesthetics</h2>
+            <p class="hero-subtitle">An in-depth exploration of the underlying structures that define our visual world, from brutalist architecture to digital interfaces.</p>
+            <a href="#" class="btn hero-btn">Read Now <span aria-hidden="true">→</span></a>
+        </div>
+    </section>
+
+    <main>
+        <!-- Featured Articles Section -->
+        <section id="featured" class="featured-articles section-padding">
+            <div class="container">
+                <h3 class="section-heading">Featured Articles</h3>
+                <div class="article-grid">
+                    <!-- Article Card 1 -->
+                    <article class="article-card">
+                        <figure class="article-image">
+                            <img src="assets/images/placeholder-1.jpg" alt="Minimalist architectural facade">
+                        </figure>
+                        <div class="article-content">
+                            <h4 class="article-title"><a href="#">The Geometry of Silence</a></h4>
+                            <p class="article-excerpt">How architects use negative space to evoke tranquility and define form.</p>
+                            <span class="article-meta">Design | Sep 22, 2023 | By A. Müller</span>
+                        </div>
+                    </article>
+
+                    <!-- Article Card 2 -->
+                    <article class="article-card">
+                        <figure class="article-image">
+                            <img src="assets/images/placeholder-2.jpg" alt="Abstract data visualization">
+                        </figure>
+                        <div class="article-content">
+                            <h4 class="article-title"><a href="#">Algorithmic Brutalism</a></h4>
+                            <p class="article-excerpt">When code becomes structure: exploring the raw aesthetics of functional programming.</p>
+                            <span class="article-meta">Technology | Sep 18, 2023 | By L. Schmidt</span>
+                        </div>
+                    </article>
+
+                    <!-- Article Card 3 -->
+                    <article class="article-card">
+                        <figure class="article-image">
+                            <img src="assets/images/placeholder-3.jpg" alt="Philosophical text excerpt">
+                        </figure>
+                        <div class="article-content">
+                            <h4 class="article-title"><a href="#">The Typographic Soul</a></h4>
+                            <p class="article-excerpt">Decoding meaning beyond words: the emotional impact of carefully chosen fonts.</p>
+                            <span class="article-meta">Philosophy | Sep 15, 2023 | By K. Wagner</span>
+                        </div>
+                    </article>
+
+                    <!-- Article Card 4 -->
+                    <article class="article-card">
+                        <figure class="article-image">
+                            <img src="assets/images/placeholder-4.jpg" alt="Still life with simple objects">
+                        </figure>
+                        <div class="article-content">
+                            <h4 class="article-title"><a href="#">Zen & The Art of Reduction</a></h4>
+                            <p class="article-excerpt">Embracing simplicity in a complex world: a dive into minimalist living.</p>
+                            <span class="article-meta">Lifestyle | Sep 10, 2023 | By M. Richter</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="load-more-container">
+                    <button class="btn load-more-btn">Load More Articles <span aria-hidden="true">↓</span></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sections Overview -->
+        <section id="sections" class="sections-overview section-padding">
+            <div class="container">
+                <h3 class="section-heading">Our Sections</h3>
+                <div class="section-grid">
+                    <div class="section-card">
+                        <h4><a href="#">Design & Art</a></h4>
+                        <p>Exploring visual culture, form, and aesthetics.</p>
+                    </div>
+                    <div class="section-card">
+                        <h4><a href="#">Architecture & Space</a></h4>
+                        <p>The built environment and its profound impact.</p>
+                    </div>
+                    <div class="section-card">
+                        <h4><a href="#">Technology & Innovation</a></h4>
+                        <p>The evolving landscape of digital and physical tech.</p>
+                    </div>
+                    <div class="section-card">
+                        <h4><a href="#">Philosophy & Thought</a></h4>
+                        <p>Deep dives into human ideas and existential queries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manifesto Section -->
+        <section id="manifesto" class="manifesto-section section-padding">
+            <div class="container">
+                <h3 class="section-heading">Our Manifesto</h3>
+                <blockquote class="manifesto-quote">
+                    <p>"In a world saturated with noise, we seek clarity. We strip away the superfluous to reveal the essence, believing that true insight emerges from precision and thoughtful reduction. The Grid Digest is not just a publication; it is a commitment to the fundamental principles of structure, form, and content integrity."</p>
+                    <cite>— The Editors, The Grid Digest</cite>
+                </blockquote>
+                <a href="#" class="btn manifesto-btn">Read Our Full Vision <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+
+        <!-- Subscribe Section -->
+        <section id="subscribe" class="subscribe-section section-padding">
+            <div class="container">
+                <h3 class="section-heading">Stay Connected. Stay Informed.</h3>
+                <p class="subscribe-intro">Receive curated insights directly to your inbox. No clutter, just content.</p>
+                <form class="subscribe-form" id="subscribeForm">
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required aria-label="Enter your email address for newsletter signup">
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <button type="submit" class="btn subscribe-btn">Subscribe <span aria-hidden="true">→</span></button>
+                </form>
+                <p class="form-success-message" id="subscribeSuccess" role="status" aria-live="polite">Thank you for subscribing!</p>
+            </div>
+        </section>
+
+        <!-- Contact Section (Minimal) -->
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <h3 class="section-heading">Contact.</h3>
+                <p>For inquiries, submissions, or collaborations, reach out to us:</p>
+                <address>
+                    <a href="mailto:info@thegriddigest.com">info@thegriddigest.com</a><br>
+                    <a href="tel:+1234567890">+1 (234) 567-890</a>
+                </address>
+                <div class="social-links">
+                    <a href="#" aria-label="Follow us on Instagram">Instagram</a>
+                    <a href="#" aria-label="Follow us on Twitter">Twitter</a>
+                    <a href="#" aria-label="Connect with us on LinkedIn">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>© <span id="currentYear"></span> The Grid Digest. All rights reserved.</p>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
